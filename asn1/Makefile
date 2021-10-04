@@ -17,7 +17,7 @@ CXX           = /Library/Developer/CommandLineTools/usr/bin/clang++
 DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=11 -Wall -Wextra -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -O2 -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=11 -Wall -Wextra -fPIC $(DEFINES)
-INCPATH       = -I. -I/usr/local/Cellar/qt/6.1.3/lib/QtWidgets.framework/Headers -I/usr/local/Cellar/qt/6.1.3/lib/QtGui.framework/Headers -I/usr/local/Cellar/qt/6.1.3/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers -I/usr/local/Cellar/qt/6.1.3/share/qt/mkspecs/macx-clang -F/usr/local/Cellar/qt/6.1.3/lib
+INCPATH       = -I. -I\ {_BOOST_PATH}/include/boost/ -I/usr/local/Cellar/qt/6.1.3/lib/QtWidgets.framework/Headers -I/usr/local/Cellar/qt/6.1.3/lib/QtGui.framework/Headers -I/usr/local/Cellar/qt/6.1.3/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AGL.framework/Headers -I/usr/local/Cellar/qt/6.1.3/share/qt/mkspecs/macx-clang -F/usr/local/Cellar/qt/6.1.3/lib
 QMAKE         = /usr/local/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = CommandGUI1.0.0
 DISTDIR = /Users/truman/Desktop/cs3307/asn1/.tmp/CommandGUI1.0.0
 LINK          = /Library/Developer/CommandLineTools/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=11 -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,/usr/local/Cellar/qt/6.1.3/lib
-LIBS          = $(SUBLIBS) -F/usr/local/Cellar/qt/6.1.3/lib -lboost_thread -lpthread -framework QtWidgets -framework QtGui -framework AppKit -framework ImageIO -framework Metal -framework QtCore -framework DiskArbitration -framework IOKit -framework AGL -framework OpenGL   
+LIBS          = $(SUBLIBS) -F/usr/local/Cellar/qt/6.1.3/lib -framework QtWidgets -framework QtGui -framework AppKit -framework ImageIO -framework Metal -framework QtCore -framework DiskArbitration -framework IOKit -framework AGL -framework OpenGL   
 AR            = /Library/Developer/CommandLineTools/usr/bin/ar cq
 RANLIB        = /Library/Developer/CommandLineTools/usr/bin/ranlib -s
 SED           = sed
@@ -744,7 +744,7 @@ moc_mainwindow.cpp: mainwindow.h \
 		/usr/local/Cellar/qt/6.1.3/lib/QtWidgets.framework/Headers/qlabel.h \
 		moc_predefs.h \
 		/usr/local/Cellar/qt/6.1.3/share/qt/libexec/moc
-	/usr/local/Cellar/qt/6.1.3/share/qt/libexec/moc $(DEFINES) --include /Users/truman/Desktop/cs3307/asn1/moc_predefs.h -I/usr/local/Cellar/qt/6.1.3/share/qt/mkspecs/macx-clang -I/Users/truman/Desktop/cs3307/asn1 -I/usr/local/Cellar/qt/6.1.3/lib/QtWidgets.framework/Headers -I/usr/local/Cellar/qt/6.1.3/lib/QtGui.framework/Headers -I/usr/local/Cellar/qt/6.1.3/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/usr/local/Cellar/qt/6.1.3/lib mainwindow.h -o moc_mainwindow.cpp
+	/usr/local/Cellar/qt/6.1.3/share/qt/libexec/moc $(DEFINES) --include /Users/truman/Desktop/cs3307/asn1/moc_predefs.h -I/usr/local/Cellar/qt/6.1.3/share/qt/mkspecs/macx-clang -I/Users/truman/Desktop/cs3307/asn1 -I'/Users/truman/Desktop/cs3307/asn1/ {_BOOST_PATH}/include/boost' -I/usr/local/Cellar/qt/6.1.3/lib/QtWidgets.framework/Headers -I/usr/local/Cellar/qt/6.1.3/lib/QtGui.framework/Headers -I/usr/local/Cellar/qt/6.1.3/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/usr/local/Cellar/qt/6.1.3/lib mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
