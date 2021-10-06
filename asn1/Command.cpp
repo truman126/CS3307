@@ -2,7 +2,7 @@
 
 
 string commandText; //input text from user
-string result = "";
+string result;
 int returnCode;
 
 //constructor with no parameters
@@ -29,4 +29,37 @@ Command::~Command()
 
 
 // METHODS
+
+void Command::executeCommand()
+{
+    bp::ipstream output;
+    std::string line;
+    
+    
+    try {
+        bp::system(commandText, (bp::std_out & bp::std_err)  > output); //executes the command and pipes the output into a pipe stream variable
+        //to print the output into a string
+        while (std::getline(output,line)){
+            result += line;
+        }
+    } catch(bp::process_error e){
+        cout << "error" << endl;
+        result = "An error has occurred!";
+
+    }
+
+
+    
+
+    
+
+}
+
+string Command::getOutput(){
+    return result;
+}
+
+string Command::getInput(){
+    return commandText;
+}
 

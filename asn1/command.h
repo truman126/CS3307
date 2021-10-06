@@ -4,8 +4,11 @@
 #include <iostream>
 #include <fstream>
 #include <boost/process.hpp>
+#include <numeric>
 
 using namespace std;
+
+namespace bp = boost::process;
 
 namespace Ui {
   class Command;
@@ -28,6 +31,15 @@ class Command
 
     //destructor method
     ~Command();
+
+    //command that executes the command input
+    void executeCommand();
+
+    string getOutput();
+    
+    
+    string getInput();
+
 
 
 

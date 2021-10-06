@@ -4,8 +4,19 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QLineEdit>
-#include <QListView>
+#include <QListWidget>
 #include <QLabel>
+#include <QTextEdit>
+#include <Vector>
+#include <algorithm>
+
+using namespace std;
+
+
+#include "command.h"
+
+
+using namespace boost::process;
 
 namespace Ui {
   class MainWindow;
@@ -18,11 +29,17 @@ public:
   explicit MainWindow(QWidget *parent = nullptr);
 private slots:
   void handleButton();
+  void storeCommand(Command);
+  void updateItemHistory(string);
+  void viewHistoryOfItem();
+
 private:
+  vector<Command> *storedCommands;
   QPushButton *enter_button;
   QLineEdit *command_input;
-  QListView *previous_command_list;
+  QListWidget *previous_command_list;
   QLabel *return_status;
-  QLabel *output_display;
+  QTextEdit *output_display;
+
 };
 #endif // MAINWINDOW_H

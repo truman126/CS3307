@@ -23,8 +23,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    const uint offsetsAndSize[6];
-    char stringdata0[25];
+    const uint offsetsAndSize[16];
+    char stringdata0[89];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -32,10 +32,17 @@ static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
 QT_MOC_LITERAL(0, 10), // "MainWindow"
 QT_MOC_LITERAL(11, 12), // "handleButton"
-QT_MOC_LITERAL(24, 0) // ""
+QT_MOC_LITERAL(24, 0), // ""
+QT_MOC_LITERAL(25, 12), // "storeCommand"
+QT_MOC_LITERAL(38, 7), // "Command"
+QT_MOC_LITERAL(46, 17), // "updateItemHistory"
+QT_MOC_LITERAL(64, 6), // "string"
+QT_MOC_LITERAL(71, 17) // "viewHistoryOfItem"
 
     },
-    "MainWindow\0handleButton\0"
+    "MainWindow\0handleButton\0\0storeCommand\0"
+    "Command\0updateItemHistory\0string\0"
+    "viewHistoryOfItem"
 };
 #undef QT_MOC_LITERAL
 
@@ -45,7 +52,7 @@ static const uint qt_meta_data_MainWindow[] = {
        9,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -53,9 +60,15 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   20,    2, 0x08,    0 /* Private */,
+       1,    0,   38,    2, 0x08,    0 /* Private */,
+       3,    1,   39,    2, 0x08,    1 /* Private */,
+       5,    1,   42,    2, 0x08,    3 /* Private */,
+       7,    0,   45,    2, 0x08,    5 /* Private */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 4,    2,
+    QMetaType::Void, 0x80000000 | 6,    2,
     QMetaType::Void,
 
        0        // eod
@@ -68,10 +81,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->handleButton(); break;
+        case 1: _t->storeCommand((*reinterpret_cast< Command(*)>(_a[1]))); break;
+        case 2: _t->updateItemHistory((*reinterpret_cast< string(*)>(_a[1]))); break;
+        case 3: _t->viewHistoryOfItem(); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject MainWindow::staticMetaObject = { {
@@ -82,7 +97,7 @@ const QMetaObject MainWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
 
-, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Command, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<string, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -109,13 +124,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 4;
     }
     return _id;
 }
